@@ -1,0 +1,7 @@
+package web;
+//Module 파트
+public class index {
+	public String test() {
+		return null;
+	}
+}

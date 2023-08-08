@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>lotto</title>
+</head>
+<body>
+	<form id="f" method="post" action="./lotto_ok.do">
+		숫자1 : <input type="text" name="no1" id="no1"><br>
+		숫자2 : <input type="text" name="no2" id="no2"><br>
+		숫자3 : <input type="text" name="no3" id="no3"><br>
+		숫자4 : <input type="text" name="no4" id="no4"><br>
+		숫자5 : <input type="text" name="no5" id="no5"><br>
+		숫자6 : <input type="text" name="no6" id="no6"><br>
+		<input type="button" value="전송" onclick="efg()">
+	</form>
+<script>
+		function efg(){
+			f.submit();
+	}
+</script>
+
+</body>
+</html>

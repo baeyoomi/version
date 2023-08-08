@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>lotto</title>
+</head>
+<body>
+	<form id="f" method="post" action="./lotto_ok.do">
+		숫자1 : <input type="text" name="no1"><br>
+		숫자2 : <input type="text" name="no1"><br>
+		숫자3 : <input type="text" name="no1"><br>
+		숫자4 : <input type="text" name="no1"><br>
+		숫자5 : <input type="text" name="no1"><br>
+		숫자6 : <input type="text" name="no1"><br>
+		<input type="button" value="전송" onclick="abc()">
+	</form>
+<script>
+	function abc(){           //abc() 함수를 선언
+		if(f.data.value==""){
+			alert("전송할 데이터 값을 입력하세요");
+		}
+		else{ 
+			f.submit();       //form태그 안에 사용자값을 전송 명령어
+		}
+	}
+</script>
+
+</body>
+</html>
