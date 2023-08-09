@@ -1,0 +1,38 @@
+let data;     //변수가 같은 중복이름을 사용하지 않도록 하기위한 선언   ,const 상수라 값을 변동못함
+
+let array;
+function calldata(data){
+	console.log(data);    //본판보기
+	this.array = data;
+}
+
+function abc(){
+	this.array["member_list"].sort(function(a,b){
+		console.log(a);
+		//return b["point"] - a["point"];  //내림차순
+		//return a["point"] - b["point"];  //올림차순
+	});
+	console.log(this.array);   //바뀐거 보기
+}	
+
+	// 승균 ip 192.168.110.214
+	// 경민 ip 192.168.110.215
+	// 경선 ip 192.168.110.216
+	// 내꺼 ip 192.168.110.217
+	/*
+	function aaa(){
+		if(window.XMLHttpRequest){
+			return new XMLHttpRequest();
+		}
+	}
+	function bbb(){
+		if(data.readyState==XMLHttpRequest.DONE && data.status==200){
+			const array = JSON.parse(this.response);
+			console.log(array);
+		}
+	}
+	data =aaa();
+	data.onreadystatechange = bbb;
+	data.open("get","http://192.168.110.216:8081/web/userlist.json",true);
+	data.send();
+	*/

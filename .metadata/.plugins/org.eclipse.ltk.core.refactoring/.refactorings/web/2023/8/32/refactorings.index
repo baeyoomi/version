@@ -2,3 +2,6 @@
 1691457554324	Delete elements
 1691459900421	Rename type 'Index'
 1691485611571	Delete element
+1691569664997	Move 'login_idck.jsp' to 'webapp'
+1691569695562	Move 'web.xml' to 'webapp'
+1691569718572	Move 'web.xml' to 'WEB-INF'

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>lotto</title>
+</head>
+<body>
+	<form id="f" method="post" action="./lotto_ok.do">
+		숫자1 : <input type="text" name="no" id="no0" class="no"><br>
+		숫자2 : <input type="text" name="no" id="no1" class="no"><br>
+		숫자3 : <input type="text" name="no" id="no2" class="no"><br>
+		숫자4 : <input type="text" name="no" id="no3" class="no"><br>
+		숫자5 : <input type="text" name="no" id="no4" class="no"><br>
+		숫자6 : <input type="text" name="no" id="no5" class="no"><br>
+		<input type="button" value="전송" onclick="abc()">
+	</form>
+	
+<!--js 배열형태-->
+<input type="button" value="배열클릭" onclick="bbb()">
+<ul id="uldata">
+	
+</ul>
+	<script>
+		function bbb(){
+			var data = []; //비어있는 배열값
+			var d = [1,2,3,4,5]; //숫자배열
+			var z = ["1","2","3","4","5"] //문자배열
+			var money = ["2000","5000","1500","8800"]; //문자로 배열입력함
+			console.log(z.length);  //배열갯수
+			console.log(d[2]);  //배열 변수에 배열번호 값을 입력하여 해당 데이터를 출력하는 형태
+			data[0] = "홍길동";
+			console.log(data);
+			
+			var w = 0;
+			while(w < d.length){
+				document.getElementById("uldata").innerHTML += "<li>"+d[w]+"</li>" ;   //= 로 쓰면 기존데이터 중복으로 인식하고 다 지워버림 += 로 쓰면 기존데이터에 더해줌
+				w++;
+			}
+			
+			//장바구니에 담긴 총 합계금액
+			var ww = 0;
+			var total = 0;
+			do{
+				total += Number(money[ww]);
+				ww++;
+			}while(ww<money.length);
+			console.log(total);
+		}
+		
+		
+		
+		function abc(){
+			//해당 변수는 사용자가 조건에 맞는 모든 값을 입력하였을 경우 submit이 작동하도록 함
+			var ck = "yes";
+			
+			//class 형태 쓰다가 바꿈
+			// 같은 class를 모두 가져옴 
+			var ea = document.getElementsByClassName("no"); 
+			//console.log(es.length); 갯수 파악용
+			
+				/* 해당 코드는 잘못된 코드 입니다 
+				var nm = "no" + w;
+				if(document.getElementsByName(nm).value==""){
+					alert("숫자를 모두 입력해주세요");
+					break;
+				}
+				*/			
+			
+			//name 형태
+			var w = 0;
+			while(w < ea.length){
+				if(document.getElementsByName("no")[w].value==""){
+					alert("숫자를 모두 입력해주세요");
+					ck = "no";
+					break;
+				}
+				else{
+					//NaN : Not a Number 문자가 입력됐을경우 , 대소문자 구분함
+					//isNaN : true(문자), false(숫자)
+					if(isNaN(document.getElementsByName("no")[w].value)==true){
+						alert("숫자만 입력해주세요");
+						ck = "no";
+						break;
+					}
+				}
+				w++;
+			}
+			if (ck == "yes"){
+				f.submit();
+			}
+			
+			//id 형태의  js
+			/*
+			var w = 0;
+			while(w < 6){
+				var ids = document.getElementById("no"+w);
+				if(ids.value==""){
+					alert("숫자를 모두 입력해주세요");
+					ids.focus();
+					break;  break안해주면 숫자빈곳이 3곳일때 오류 3번뜸 
+				}
+				w++;
+			}
+			f.submit();
+			*/
+		}
+	</script>
+
+</body>
+</html>

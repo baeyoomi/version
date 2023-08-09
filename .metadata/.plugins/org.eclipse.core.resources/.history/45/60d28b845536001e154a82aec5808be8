@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>lotto</title>
+</head>
+<body>
+	<form id="f" method="post" action="./lotto_ok.do">
+		숫자1 : <input type="text" name="no" id="no0" class="no"><br>
+		숫자2 : <input type="text" name="no" id="no1" class="no"><br>
+		숫자3 : <input type="text" name="no" id="no2" class="no"><br>
+		숫자4 : <input type="text" name="no" id="no3" class="no"><br>
+		숫자5 : <input type="text" name="no" id="no4" class="no"><br>
+		숫자6 : <input type="text" name="no" id="no5" class="no"><br>
+		<input type="button" value="전송" onclick="abc()">
+	</form>
+	<script>
+		function abc(){
+			//class 형태 쓰다가 바꿈
+			// 같은 class를 모두 가져옴 
+			var es = document.getElementsByClassName("no").length; 
+			//console.log(es.length); 갯수 파악용
+			
+			//name 형태
+			var w = 0;
+			while(w < ea){
+				if(document.getElementsByName("no")[w].value==""){
+					alert("숫자를 모두 입력해주세요");
+					break;
+				}
+				w++;
+			}
+			
+			//id 형태의  js
+			/*
+			var w = 0;
+			while(w < 6){
+				var ids = document.getElementById("no"+w);
+				if(ids.value==""){
+					alert("숫자를 모두 입력해주세요");
+					ids.focus();
+					break;  break안해주면 숫자빈곳이 3곳일때 오류 3번뜸 
+				}
+				w++;
+			}
+			*/
+			//f.submit();
+		}
+	</script>
+
+</body>
+</html>

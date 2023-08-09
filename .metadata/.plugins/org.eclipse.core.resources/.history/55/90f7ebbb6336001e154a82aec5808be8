@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>배열구조 생성법 및 콘솔출력 1</title>
+</head>
+<body>
+
+<input type="button" value="배열1" onclick="aaa()">
+<input type="button" value="배열2" onclick="bbb()">
+<input type="button" value="배열3" onclick="ccc()">
+
+<!--가장 많이 쓰임, 중요함 (join할때 쓰임)-->
+<input type="button" value="배열4" onclick="ddd()" style="border: 2px solid red; border-radius: 5px;">
+
+<div id="box">
+	<!--
+	<ul>
+		<li>아이디 : </li>
+		<li>고객명 : </li>
+		<li>나이 : </li>
+	</ul>
+	-->
+</div>
+
+</body>
+<script>
+	var html = document.getElementById("box");
+	function aaa(){
+		// 첫번째 방식 : {} 배열 구조는 대표키가 있으며, 단 대표키는 중복되어서는 안된다.
+		var data = {
+			"myinfo1":["홍길동","25","hong@nate.com"],
+			"myinfo2":["김유신","30","kim@nate.com"]
+		}
+		console.log(data);
+	}
+	
+	function bbb(){
+		// 두번째 방식 : 대표키(Table명), 대표키 안에 각각의 파트별로 보조키(컬럼명)을 이용하여 배열을 설계하는 방식
+		var data = {
+			"myinfo":[
+			{
+				"id" : "hong",
+				"name" : "홍길동",
+				"age" : "25"
+			},
+			{
+				"id" : "kim",
+				"name" :"김유신",
+				"age" : "30"
+			}
+			]
+		}
+		//console.log(data);
+		var ea = (data["myinfo"].length);
+		//console.log(ea); 값 2 라고 뜸
+		console.log(data["myinfo"]);
+		var w = 0;
+		var html = document.getElementById("box");
+		while(w < ea){    //배열 전용 반복문 forin문,foroff문,foreach문 es언어 -for문은 느림
+			//console.log(data["myinfo"][w]["id"]);    콘솔로 확인한번 해보기
+			html.innerHTML += `
+			<ul>
+				<li>아이디 : `+data["myinfo"][w]["id"]+`</li>
+				<li>고객명 : `+data["myinfo"][w]["name"]+`</li>
+				<li>나이 : `+data["myinfo"][w]["age"]+`</li>
+			</ul>
+			`;   //역외 따옴표 esc 밑에 있는거
+			w++;
+		}
+		
+	}
+	
+	function ccc(){
+		//세번째 방식 : 대표키(Table명)이며, 그 외에 2차배열 형태로 데이터값을 순서대로 나열하여 출력하는 배열형태
+		var data = {
+			"myinfo":[
+				["hong","25","hong@nate.com"],
+				["kim","30","kim@nate.com"]
+			]
+		}
+		console.log(data);
+	}
+	
+	function ddd(){
+		
+		var data = {
+			"myinfo" : [
+				{"id":"hong","name":"홍길동","age":"25",
+				"log_history":[    //복합키
+					{"last_day":"2023-08-09"}
+				]
+				},
+				{"id":"kim","name":"김유신","age":"30",
+				"log_history":[
+					{"last_day":""}   //접속으로 아직 안했다
+				]
+				}
+			]
+		}
+		console.log(data);	
+	}
+</script>
+</html>
