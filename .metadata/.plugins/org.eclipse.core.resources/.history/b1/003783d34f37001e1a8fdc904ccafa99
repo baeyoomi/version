@@ -1,0 +1,44 @@
+package array_test;
+
+import java.util.Arrays;
+
+//2차 배열을 1차 배열로 합산
+public class array7 {
+
+	public static void main(String[] args) {
+		new array7().test();
+
+	}
+	
+	public void test() {
+		int a[][] = {
+				{1,3,5,7},
+				{2,4,6,8}
+		};
+		int ea1 = a.length;        //그룹 2
+		int ea2 = a[0].length;     //데이터 갯수 4
+		int make = ea1 * ea2;      //2 * 4 = 8 , 해당 배열의 전체 갯수를 파악하기 위한 공식
+		int b[] = new int[make];   //2차 배열을 1차 배열로 병합하기 위한 빈 배열값
+		
+		int answer = 0;   //배열 배정 번호ㅓ
+		/*
+		 for(int i=0; i<ea1; i++){
+		 	for(int j=0; j<ea2; j++){
+		 		b[answer] = a[i][j];
+		 		answer++;
+		 	}
+		 }
+		 */
+		for(int c[] : a) {
+			for(int cc : c) {
+				b[answer] = cc;
+				answer++;
+				//System.out.println(cc);		
+			}
+		}
+		System.out.println(Arrays.toString(b));   //[1, 3, 5, 7, 2, 4, 6, 8]
+		
+	}
+
+	
+}

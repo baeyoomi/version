@@ -1,0 +1,20 @@
+package array_test;
+
+import java.util.Arrays;
+
+//원시배열 형태
+public class array1 {
+
+	public static void main(String[] args) {
+		//String, int, Object
+		int a[] = new int[5];
+		a[0] = 1;
+		a[1] = 2;
+		a[2] = 3;
+		a[3] = 4;
+		int ea = a.length;
+		System.out.println(ea);    //5 내가 설정해놓은게 4개여도 길이를 5개로 만들었으니 하나는 NULL값이 들어가 있다.
+		System.out.println(Arrays.toString(a));
+	}
+
+}
