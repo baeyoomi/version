@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compatible" content="chrome=1,IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="imagetoolbar" content="no">
+        <title>반응형 로그인</title>
+        <link rel="stylesheet" type="text/css" href="./weblogin.css">
+    </head>
+<body>
+	<!--
+		submit 이벤트 발생시 form태그 onsubmit이라는 속성을 사용
+		그 외에javascript 함수명과 함께 return을 이용함
+	-->
+<form onsubmit="return login_infock()" id="f" method="post" action="./loginok.do" enctype="application/x-www-form-urlencoded">
+<div class="login">
+    <span class="left">
+        <label>아이디<input type="text" id="mid" name="userid" placeholder="아이디를 입력하세요"></label>
+        <label>패스워드<input type="password" id="mpass" name="userpw" placeholder="패스워드를 입력하세요"></label>
+    </span>
+    <span class="right">
+        <input type="submit" value="로그인">   <!--여기에 onclick() 넣으면 안됌 그래서 form에다가 onsubmit="" 걸어줌-->
+    </span>
+    <span class="bottom">
+        <div class="divleft">회원가입</div>
+        <div class="divright">아이디/비밀번호 찾기</div>
+    </span>
+</div>
+</form>
+
+<script>
+	/* submit : return false,return true 로 구분하여 페이지 이동을 핸들링 함 */
+	function login_infock(){
+		if(f.userid.value==""){    //아이디 검토
+			alert("아이디를 입력하세요!");
+			return false;    //이거 안쓰면 새 페이지로 이동되는 효과여서 리셋됌, 이걸써줘야 함
+		}
+		else if(f.userpw.value==""){   //패스워드 검토
+			alert("패스워드를 입력하세요!");
+			return false;
+		}
+		else if(f.userpw.value.length < 4){    //패스워드 최소 4자 이상 입력체크
+			alert("패스워드는 4글자 이상 입력하세요!");
+			return false;
+		}
+		else{
+			//return true; 같은의미
+			//f.submit();도 쓸수 있으나 원래 submit 기능이있으니 이거 안써도 되고 써도됌
+			return;
+		}
+		//console.log("test");
+		//return false;   //button 타입은 넣어주는 일이 잘 없지만, submit은 필수 조건이다
+	}
+</script>
+</body>
+</html>

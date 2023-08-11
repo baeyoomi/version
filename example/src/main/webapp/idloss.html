@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이디 찾기</title>
+    <style>
+        .box { width: 150px; height: 50px; border:1px solid #ccc; }
+    </style>
+</head>
+<link rel="shortcut icon" href="#">
+<!--
+	응용문제 3
+	아이디 찾기 버튼 클릭시 사용자 이름, 이메일 모두가 입력이 되어야만 하며,
+	검토하는 스크립트를 작성하시오.
+-->
+<body>
+[아이디 찾기]
+이름 : <input type="text" id="usernm">
+이메일 : <input type="text" id="useremail">
+<input type="button" value="아이디 찾기" onclick="id_search()">
+<br><br>
+아이디명 : <div class="box" id="box"></div>
+</body>
+<script>
+	//form태그가 없을 경우 무조건 getElementById로 값을 확인함 name은 form이 있어야함
+	function id_search(){
+		var nm = document.getElementById("usernm");
+		var email = document.getElementById("useremail");
+		if(nm.value==""){
+			alert("이름을 입력하셔야 합니다.");
+		}
+		else if(email.value==""){
+			alert("이메일을 입력하셔야 합니다.");
+		}
+		else{
+			//ajax를 사용하기 위해 해당 정보를 인자값으로 전달
+			ajax(nm.value,email.value);
+		}
+	}
+	
+	function ajax(a,b){
+		var info;   //ajax 통신 변수
+		var data;   //응답 받는 결과 변수
+		//backend에게 전달되는 2개 값 usernm(이름), useremail(이메일주소)
+		var postdata = "usernm="+ a +"&useremail="+ b;     
+		//function 두개,  통신 열놈, 통신 받아올 놈
+		function wk(){
+			if(window.XMLHttpRequest){
+				return new XMLHttpRequest();
+			}
+		}
+		function idsearch(){
+			if(info.readyState==XMLHttpRequest.DONE && info.status==200){
+				//console.log(this.response);
+				var result = this.response;
+				if(result=="error"){
+					alert("해당 정보를 확인하지 못하였습니다.");
+				}
+				else{
+					var html = document.getElementById("box");
+					html.innerHTML = "<p>"+result+"</p>";
+					//html.append(result);      /* append 해당 아이디값 안에 값을 적용,html코드 작성 불가 "<p>"+result+"<p>"같은거 ex) 값 aa->  <div id="box"> "aa" </div> */
+					//html.insertBefore(result,null); //태그 밖에 써짐, 나중에 설명해주심
+				}
+			}
+		}
+		info = wk();
+		info.onreadystatechange = idsearch; //해당되는 값을 해당되는 변수에 입력
+		info.open("POST","./idsearch.do",true); //form 없이 post전송
+		//setRequestHeader : send 위에 설정하셔야만 정상적으로 작동함
+		info.setRequestHeader("content-type","application/x-www-form-urlencoded")
+		info.send(postdata);
+		/*
+		응용문제 4
+		해당 2개의 데이터를 backend에서 servlet을 이용하여 데이터를 출력시키시오
+		*/
+	}
+</script>
+</html>
