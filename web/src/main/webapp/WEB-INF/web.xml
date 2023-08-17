@@ -32,4 +32,12 @@
 	</servlet-mapping>
 	
 	
+	<servlet>
+		<servlet-name>fileupload1</servlet-name>
+		<servlet-class>web.file</servlet-class> <!-- package 이름 -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>fileupload1</servlet-name>
+		<url-pattern>/fileupok.do</url-pattern>
+	</servlet-mapping>	
 </web-app>
