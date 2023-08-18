@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>URI + SPLIT A 파트 (test)</title>
+</head>
+<link rel="shortcut icon" href="#">
+
+<body>
+<form id="f" method="get" action="./js8_B_1.html" onsubmit="return abc()">
+고객명 : <input type="text" name="user"><br>
+아이디 : <input type="text" name="id"><br>
+<input type="checkbox" id="check" name="check" onclick="ck(this.checked)"> 개인정보 3자에 제공(선택) <br>
+<button>이벤트 참여</button>
+</form>
+
+<style>
+	button {color: white; font-weight: bold; padding: 5px 15px; background:steelblue; border: none;}
+</style>
+</body>
+
+<script>
+	function ck(e){
+		if(e == false){
+			return false;
+		}
+		f.submit;
+	}
+	
+	function abc(){
+		if(f.user.value==""){
+			alert("고객명을 입력하세요");
+			return false;
+		}
+		else if(f.id.value==""){
+			alert("아이디를 입력하세요");
+			return false;
+		}
+		else{
+			return;
+		}
+	}	
+</script>
+</html>

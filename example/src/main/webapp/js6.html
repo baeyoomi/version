@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 - 변수 배열 및 (URI 활용법(데이터 보내는 역할) - js7.html)</title>
+</head>
+<link rel="shortcut icon" href="#">
+<body>
+	
+<form id="f" method="get" action="./js7.html" onsubmit="return abc()">
+검색어 : <input type="text" name="search"><br>
+카테고리 : <input type="text" name="cate"><br>
+<button>전송</button>
+</form>
+
+</body>
+
+<script>
+	function abc(){
+		if(f.search.value==""){
+			alert("검색어를 입력하세요");
+			return false;
+		}
+		else if(f.cate.value==""){
+			alert("카테고리를 입력하세요");
+			return false;
+		}
+		else{
+			return;
+		}
+	}
+	
+	
+	/*  이거 활성화 하면 오류뜸
+	var a1 = "홍길동";
+	var a2 = "웹사이트";
+	var a3 = "쇼핑몰";
+	var a4 = "회원가입";
+	
+	var f;
+	for(f=1; f<=4; f++){
+		//eval이란 : 문자 또는 숫자를 이용하여 변수명으로 변환시키는 함수입니다.
+		var result = eval("a"+f);
+		console.log(result);
+	}	
+	*/
+</script>
+</html>

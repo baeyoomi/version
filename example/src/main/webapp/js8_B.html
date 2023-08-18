@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>URI + SPLIT B 파트</title> <!--경선쓰 ip 192.168.110.216-->
+</head>
+<link rel="shortcut icon" href="#">
+<body>
+고객명 : <span id="user"></span><br>
+<br>
+아이디 : <span id="id"></span><br>
+<br>
+<input type="checkbox" id="check" name="check"> 개인정보 3자에 제공(선택)
+</body>
+
+<script>
+	var uri = decodeURI(window.location.search);
+	var aa = uri.split("=");
+	if(aa.length == 2){
+		var data1 = uri.split("&id=");
+		var data2 = data1[0].split("?user=");
+		document.getElementById("user").innerText = data2[1];
+		document.getElementById("id").innerText = data1[1];			
+	}
+	else{
+		var data1 = uri.split("&check=");
+		var data2 = data1[0].split("&id=");
+		var data3 = data2[0].split("?user=");
+		document.getElementById("user").innerText = data3[1];
+		document.getElementById("id").innerText = data2[1];
+		document.getElementById("check").checked = data1[1];			
+	}
+
+	
+</script>
+</html>
+
+<!--
+	[A파트]
+	고객명, 아이디는 모두 필수로 입력되어야 합니다.
+	단, 개인정보 3자에 제공은 선택입니다.	
+	이벤트 참여 버튼 클릭시 B파트 사용자에게 URI로 전달합니다.
+	
+	[B파트]
+	A파트에 넘어온 값을 출력시키면 됩니다. 단, 개인정보 3자에 제공(선택)에 체크 되었을 경우 해당 내용에도 자동으로 체크 되어야 하며,
+	체크아웃 상태 데이터가 넘어올 경우 B파트에도 체크 아웃 되어야 합니다.
+	action="http://192.168.110.216:8081/example/js9.html"
+-->

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>URI + SPLIT B 파트 (선생님 예시)</title>
+</head>
+<link rel="shortcut icon" href="#">
+<body>
+고객명 : <span id="user"></span><br>
+아이디 : <span id="id"></span><br>
+<input type="checkbox" id="check" disabled> 개인정보 3자에 제공(선택)
+</body>
+
+<script>
+	var uri = decodeURI(window.location.search);
+	var data1 = uri.split("&check=");
+	if(data1.length > 1){
+		document.getElementById("check").checked = true;			
+	}
+	var data2 = data1[0].split("&id=");
+	document.getElementById("id").innerText = data2[1];
+	var data3 = data2[0].split("?user=");
+	document.getElementById("user").innerText = data3[1];
+
+</script>
+</html>
