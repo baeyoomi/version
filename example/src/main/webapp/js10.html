@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>onclick~onchange, submit, click</title>
+</head>
+<body>
+	<form id="f" method="post" action="http://naver.com"> <!--폼태그 안에서 어떤 역할을 하는지 확인해보기-->
+		<input type="submit" value="클릭"> 
+		<!--폼에 type="submit"은 action을 작동 시켜줌 onclick을 넣을 필요가 없음 넣으면 핸들링이 중복되어 오류남-->
+		<input type="button" value="클릭">
+	</form>
+<hr>
+	<form method="post" action="http://naver.com">
+		<input type="text">
+	</form>
+	<input type="submit" value="클릭" onclick="abc()"> 
+	<input type="button" value="클릭" onclick="bbb()">
+<hr>
+	<form method="post" action="http://naver.com" onsubmit="return abc()">
+		<input type="text">
+		<input type="submit" value="클릭"> 
+	</form>
+<hr>
+	<input type="button" value="클릭" onclick="bbb()">
+<hr>
+	<select onclick="zzz(this.value)">
+		<option value="1">onclick 1</option>
+		<option value="2">onclick 2</option>
+		<option value="3">onclick 3</option>
+		<option value="4">onclick 4</option>
+	</select>
+
+<hr>
+	<select onchange="zzz(this.value)">
+		<option value="1">onchange 1</option>
+		<option value="2">onchange 2</option>
+		<option value="3">onchange 3</option>
+		<option value="4">onchange 4</option>
+	</select>
+</body>
+<script>
+	function zzz(n){
+		console.log(n);
+	}
+	
+	function bbb(){
+		f.submit();
+	}
+	
+	function abc(){
+		alert("test");
+		return false;
+	}
+</script>
+</html>

@@ -9,31 +9,20 @@
 	실수 : 소수점
 	유리수 : 0.1 -0.25 -1 +1
 	무리수 : 3.14...
-	정수 : -1 +1	
+	정수 : -1 +1	2
 	Math.ceil
 	Math.round
 	Math.floor
 -->
 </head>
 <body>
-암호코드 (4자리) : <input type="text" id="num">
-</body>
+암호코드 (4자리) : <input type="text" id="num"><br>
 
+</body>
 <script>
-	/*
-	var test1 = Math.random() * 10;  // 기본, 소수점 다 나옴
-	console.log(test1);
-	var test2 = Math.ceil(Math.random() * 10);  // 1~10 소수점 무조건 올림
-	console.log(test2);
-	var test3 = Math.floor(Math.random() * 10); // 0~9  소수점 무조건 절삭
-	console.log(test3);
-	var test4 = Math.round(Math.random() * 10); // 0~10 0.5이상이면 반올림
-	console.log(test4);
-	*/
-	
 	var f;
-	var sc = "";  //문자화 시킴
-	for(f=1; f<=4; f++){   //무조건 4자리 받기위해 4바퀴 돌림
+	var sc = "";
+	for(f=1; f<=6; f++){ 
 		sc += Math.floor(Math.random() * 10);
 	}
 	document.getElementById("num").value = sc;

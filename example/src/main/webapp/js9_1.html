@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>랜덤(이미지) random</title>
+</head>
+<body>
+암호코드 (4자리) : <input type="text" id="num"><br>
+<div class="box" id="box"></div>
+</body>
+<style>
+	.box{
+		width: 200px;
+		height: 80px;
+		background-image: url("./number/security_back.png");
+		overflow: hidden;
+		}
+</style>
+<script>
+	var f;
+	var sc = "";
+	var sc2 = "";
+	for(f=1; f<=4; f++){ 
+		sc = Math.floor(Math.random() * 10);
+		sc2 += sc;
+		var img = "./number/no"+sc+".png";
+		document.getElementById("box").innerHTML += "<img src="+img+">";
+	}
+	document.getElementById("num").value = sc2;
+</script>
+</html>

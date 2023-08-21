@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로또</title>
+</head>
+<body>
+	<div class="box">
+		<input class="rottoBtn" type="button" onclick="random()" value="랜덤숫자 생성">
+		<div id="num" class="rottoNum"></div>
+	</div>
+</body>
+<style>
+	.box {border:1px solid cadetblue; border-radius: 10px; padding: 30px; width: 300px; text-align: center;}
+	.rottoBtn{background-color: cadetblue; color: white; font-weight: bold; border:none; padding: 5px 10px; border-radius: 5px;}
+	.rottoNum{width: 200px; height: 50px; font-size: 18px; margin:0 auto; padding-top: 10px;}
+</style>
+<script>
+
+	function random() {
+		var numbers = [];
+		while (numbers.length < 6) {
+			var number = Math.floor(Math.random() * 45) + 1;
+			if (!numbers.includes(number)) {
+				numbers.push(number);
+			}
+		}
+		numbers.sort();
+		document.getElementById("num").innerHTML = numbers.join(", ");
+	}
+
+</script>
+</html>
