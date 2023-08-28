@@ -40,4 +40,22 @@
 		<servlet-name>fileupload1</servlet-name>
 		<url-pattern>/fileupok.do</url-pattern>
 	</servlet-mapping>	
+	
+	<servlet>
+		<servlet-name>join</servlet-name>
+		<servlet-class>web.join</servlet-class> <!-- package 이름 -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>join</servlet-name>
+		<url-pattern>/shop/joinok.do</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>web.login</servlet-class> <!-- package 이름 -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/shop/loginok.do</url-pattern>
+	</servlet-mapping>		
 </web-app>
