@@ -73,3 +73,13 @@ class data5{
 		}
 	}
 }
+
+
+
+/*
+ * System.out.println("단어를 입력하세요"); 
+ * Scanner sc = new Scanner(System.in); 
+ * String word = sc.nextLine(); 
+ * int ea = word.length(); 
+ * System.out.println(ea);
+ */

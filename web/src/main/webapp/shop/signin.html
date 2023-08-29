@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
     <link rel="stylesheet" type="text/css" href="./login.css">
-    <script src="./join.js"></script>
+    <script src="./join.js?v=2" defer></script>  <!-- ?v=1 중요 업데이트가 안되면 작동이 안됌-->
+    <!--defer : HTML 코드를 모두 로드한 후 javascript 실행시킴 (지연) -->
 	<link rel="shortcut icon" href="#">    
 </head>
 <body>
@@ -29,7 +30,7 @@
         <p></p>
         </label>
 		<p style="text-align: left;">
-			<input type="checkbox" value="save">아이디 저장
+			<label><input type="checkbox" id="saveid" value="save" onclick="id_save()">아이디 저장</label>
 		</p>
 
         <label>

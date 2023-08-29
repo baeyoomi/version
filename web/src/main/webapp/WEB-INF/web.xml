@@ -58,4 +58,22 @@
 		<servlet-name>login</servlet-name>
 		<url-pattern>/shop/loginok.do</url-pattern>
 	</servlet-mapping>		
+	
+	<servlet>
+		<servlet-name>board</servlet-name>
+		<servlet-class>web.board</servlet-class> <!-- package 이름 -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>board</servlet-name>
+		<url-pattern>/board/boardok.do</url-pattern>
+	</servlet-mapping>	
+	
+	<servlet>
+		<servlet-name>write</servlet-name>
+		<servlet-class>web.write</servlet-class> <!-- package 이름 -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>write</servlet-name>
+		<url-pattern>/board/writeok.do</url-pattern>
+	</servlet-mapping>			
 </web-app>
