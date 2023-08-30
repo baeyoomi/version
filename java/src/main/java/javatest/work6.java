@@ -22,13 +22,13 @@ import java.util.Scanner;
 public class work6 {
 	
 	public static void main(String[] args) {
-		legend lg = new legend();
-		lg.f_method("회원정보");
+		//legend lg = new legend();
+		//lg.f_method("회원정보");
 	}
 
 }
 
-
+/*
 abstract class father {
 	public String u_name = null;
 	public abstract void f_method(String a);
@@ -66,29 +66,7 @@ class legend extends father{
 		}
 		System.out.println(msg + type + " 입니다." );
 		
-		/*
-		String[] aa = {"홍길동", "이순신", "유관순", "강감찬", "장보고"};
-		String[] level = {"일반회원", "실버회원", "비회원"};
 
-		System.out.println("회원 이름을 검색해주세요");
-		String u_name = sc.nextLine();
-
-		String type = "";
-	    for (int i = 0; i < aa.length; i++) {
-	      if (u_name.equals(aa[i])) {
-	        if (i < 3) {
-	          type = level[0];
-	        } else {
-	          type = level[1];
-	        }
-	        break;
-	      }
-	    }
-	    if (type.isEmpty()) {
-	      type = level[2];
-	    }
-	    System.out.println(u_name + " 님은 " + type + " 입니다."); 
-		 */
 		
 	}
 	
@@ -96,3 +74,4 @@ class legend extends father{
 		//method 생성 및 결과값 출력
 	}
 }
+	*/

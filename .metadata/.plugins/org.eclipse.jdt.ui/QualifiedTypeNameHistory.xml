@@ -37,10 +37,15 @@
     <fullyQualifiedTypeName name="javatest.mother.child"/>
     <fullyQualifiedTypeName name="javatest.father"/>
     <fullyQualifiedTypeName name="javatest.legend.name"/>
+    <fullyQualifiedTypeName name="javax.servlet.annotation.MultipartConfig"/>
+    <fullyQualifiedTypeName name="javatest.inter1.zzz"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="javatest.inter1"/>
+    <fullyQualifiedTypeName name="javatest.search"/>
+    <fullyQualifiedTypeName name="javatest.setdb"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="com.mysql.jdbc.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="java.util.Arrays"/>
-    <fullyQualifiedTypeName name="javax.servlet.annotation.MultipartConfig"/>
+    <fullyQualifiedTypeName name="java.lang.Runnable"/>
 </qualifiedTypeNameHistroy>
