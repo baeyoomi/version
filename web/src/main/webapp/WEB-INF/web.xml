@@ -75,5 +75,9 @@
 	<servlet-mapping>
 		<servlet-name>write</servlet-name>
 		<url-pattern>/board/writeok.do</url-pattern>
-	</servlet-mapping>			
+	</servlet-mapping>	
+	
+	<session-config>
+		<session-timeout>600</session-timeout>
+	</session-config>		
 </web-app>

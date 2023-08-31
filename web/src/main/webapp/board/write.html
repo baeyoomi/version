@@ -15,7 +15,7 @@
             background: #aaa;
         }
     </style>
-    <script src="./board.js?v-1" defer></script>
+    <script src="./board.js?v=1" defer></script>
     <script src="./ckeditor/ckeditor.js"></script>
 </head>
 <body>
@@ -76,6 +76,7 @@
 <!--ckeditor 장착  ckeditor5(TS) ckeditor4(JS)-->
 <script>
 	CKEDITOR.replace("texts");
+	CKEDITOR.config.resize_enabled = false;  //사이즈 조절 불가 
 </script>
 
 </html>

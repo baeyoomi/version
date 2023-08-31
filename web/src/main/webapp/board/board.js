@@ -4,6 +4,8 @@
 /*글쓰기*/
 function b_write(){
 	//조건문
+	var t = CKEDITOR.instances.btext.getData();
+	
 	if(f.btitle.value==""){
 		alert("제목을 입력해주세요");
 		f.btile.focus();
@@ -13,9 +15,8 @@ function b_write(){
 	}else if(f.bpass.value==""){
 		alert("패스워드를 입력해주세요");
 		f.bpass.focus();
-	}else if(f.btext.value==""){
+	}else if(t==""){
 		alert("내용을 입력해주세요");
-		f.btext.focus();
 	}else{
 		f.submit();
 	}
