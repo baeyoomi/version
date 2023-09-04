@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>JS SetTimout, SetInterval 응용편 clear</title>
+<link rel="shortcut icon" href="#">
+</head>
+<body>
+<p>SetTimeout</p>
+<input type="button" value="시작" onclick="time1()">
+<input type="button" value="정지" onclick="time1_stop()">
+<p>SetInterval</p>
+<input type="button" value="시작" onclick="set()">
+<input type="button" value="정지" onclick="time2_stop()">
+</body>
+
+<script>
+var timer = 0;
+var sto;
+function time1(){
+	console.log(timer);
+	timer++;
+	sto = setTimeout(time1,1000);
+}	
+function time1_stop(){
+	clearTimeout(sto);
+}
+
+//정지시킬일 없을때 setInterval 사용, 반복해서 시작버튼 누르면 더이상 핸들링 불가
+var timer2 = 0;
+var sto2;
+function set(){
+	sto2 = setInterval(time2,1000);	
+}
+function time2(){
+	console.log(timer2);
+	//sto2 = setInterval(time2,1000);	 여기 안에서 쓰면 반복 증가로 속도가 점점빨라짐
+	timer2++;
+}
+function time2_stop(){
+	clearInterval(sto2);
+}
+</script>
+</html>

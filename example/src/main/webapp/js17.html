@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Servlet + JSON + Ajax -(Restful API -key) B</title>
+<link rel="shortcut icon" href="#">
+</head>
+<body>
+	
+<table border="1">
+	<thead>
+		<tr>
+			<th>지역명</th>
+			<th>국비지원 총 인원</th>
+			<th>미취업인원</th>
+			<th>취업인원</th>
+		</tr>
+	</thead>
+	<tbody id="datalist">
+		
+	</tbody>
+</table>
+
+</body>
+<script>
+	var aj = new XMLHttpRequest();
+	aj.onreadystatechange = function(){
+		if(aj.readyState == 4){
+			if(aj.status == 200){
+				var msg = this.response;
+				if(msg == "error"){
+					alert("서버 접근에 문제가 발생함");
+				}
+				else if(msg == "key_error"){
+					alert("보안 키가 오류발생 했습니다.");
+				}
+				else{
+					var all_list = JSON.parse(msg);
+					var html = document.getElementById("datalist");
+					console.log(all_list);
+					
+					all_list["backend"].forEach(function(a,b){
+						console.log(all_list);
+
+						html.innerHTML += `
+							<tr>
+								<td>`+a["kslee01"]+`</td>
+								<td>`+a["kslee02"]+`</td>
+								<td>`+a["kslee03"]+`</td>
+								<td>`+a["kslee04"]+`</td>
+							</tr>
+						`;
+					});					
+				}
+			}
+			else{
+				console.log("통신오류 발생!!");
+			}
+		}
+	}
+	//aj.open("GET","./job_data.do?key=yumi&callback=calldata");
+	aj.open("GET","./job_data.do?key=yumi");
+	aj.send();
+</script>
+</html>

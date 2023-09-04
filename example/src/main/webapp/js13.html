@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>JS SetTimout, SetInterval 응용편 SKIP</title>
+<link rel="shortcut icon" href="#">
+</head>
+<body>
+	
+<span id="skip" style="border: 1px solid black; padding: 2px 5px; border-radius: 10px;">
+ SKIP 5
+</span>
+
+</body>
+<script>
+	var timer = 5;
+	var set;
+	function hskip(){
+		var id = document.getElementById("skip");
+		id.innerHTML = "SKIP " + timer;
+		timer--;
+		
+		if(timer < 0){
+			clearInterval(set);
+			//location.href="http://naver.com";
+			id.innerHTML = "광고종료";  //프론트앤드는 여기서 배너 핸들링 하는걸 배움, 백엔드는 AJAX랑 합친다
+		}
+	}
+	set = setInterval(hskip,1000);
+</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Ajax + SetTimout, SetInterval(최종편)</title>
+<link rel="shortcut icon" href="#">
+</head>
+<body>
+<table border="1">
+	<thead>
+		<tr>
+			<th>해드라인</th>
+			<th>신문사</th>
+		</tr>
+	</thead>
+	<tbody id="news">
+		
+	</tbody>
+</table>
+<Style>
+	th:first-child {width: 500px;}
+	th:last-child {width: 200px;}
+</Style>
+</body>
+<script>
+		
+	function ajax(){
+		var date = new Date().toString();
+		var req = new XMLHttpRequest();
+		
+		req.onreadystatechange = function(){
+			if(req.readyState == 4){
+				if(req.status == 200){
+					var newsdata = JSON.parse(this.response);
+					var ea = newsdata.length;
+					var w = 0;
+					var html = document.getElementById("news");
+					html.innerHTML = '';	//HTML 코드 초기화
+					while(w < ea){
+						html.innerHTML += `
+							<tr>
+								<td>`+newsdata[w][0]+`</td>
+								<td>`+newsdata[w][1]+`</td>
+							</tr>
+						`;
+						w++;
+					}		
+				}else{
+					console.log("통신오류 발생");
+				}
+			}
+		}
+		req.open("GET","./news.json?v="+date);
+		req.send();
+	}
+	setInterval(ajax,1000);	
+</script>
+
+</html>
